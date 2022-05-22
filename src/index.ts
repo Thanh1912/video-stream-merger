@@ -234,6 +234,19 @@ export class VideoStreamMerger {
     this._streams = this._streams.sort((a, b) => a.index - b.index);
   }
 
+  updateOptionOfStream(mediaStream: MediaStream | string | {id: string}, opt : any): void {
+    if (typeof mediaStream === 'string') {
+      mediaStream = {
+        id: mediaStream
+      };
+    }
+    for (let i = 0; i < this._streams.length; i++) {
+      if (mediaStream.id === this._streams[i].id) {
+        this._streams[i]= {...this._streams[i], ...opt} ;
+      }
+    }
+  }
+
   /**
    * A convenience function to merge a HTML5 MediaElement instead of a MediaStream.
    *

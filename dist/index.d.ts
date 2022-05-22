@@ -100,6 +100,9 @@ export declare class VideoStreamMerger {
         id: string;
     }, index: number): void;
     private _sortStreams;
+    updateOptionOfStream(mediaStream: MediaStream | string | {
+        id: string;
+    }, opt: any): void;
     /**
      * A convenience function to merge a HTML5 MediaElement instead of a MediaStream.
      *
