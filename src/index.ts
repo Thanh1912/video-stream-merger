@@ -364,7 +364,7 @@ export class VideoStreamMerger {
       const res = videoElement.play();
       res.catch(null);
 
-      if (stream.hasAudio && this._audioCtx && !stream.mute) {
+      if (stream.hasAudio && this._audioCtx) {
         stream.audioSource = this._audioCtx.createMediaStreamSource(mediaStream);
         stream.audioOutput = this._audioCtx.createGain(); // Intermediate gain node
         stream.audioOutput.gain.value = 1;
